@@ -1,7 +1,7 @@
-import { Welcome } from '../welcome';
+import { Welcome } from './main/welcome';
 import { TechnologyStack } from '../stack/stack';
-import { ContactsList } from '../contacts';
-import { Footer } from '../footer';
+import { ContactsList } from './main/contacts';
+import { Footer } from './main/footer';
 import React from 'react';
 import sc from 'styled-components';
 import { ITheme } from '../css/theme';

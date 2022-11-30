@@ -1,6 +1,6 @@
 import React from 'React';
 import sc from 'styled-components';
-import { ITheme } from './css/theme';
+import { ITheme } from '../../../css/theme';
 
 const Button = sc.div`
     position: absolute;

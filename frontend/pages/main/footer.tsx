@@ -1,6 +1,6 @@
 import React from 'react';
 import sc from 'styled-components';
-import { ITheme } from './css/theme';
+import { ITheme } from '../../css/theme';
 import { useNavigate } from 'react-router-dom';
 
 const Container = sc.div`

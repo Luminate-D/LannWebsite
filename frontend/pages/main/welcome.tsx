@@ -1,7 +1,7 @@
 import React from 'react';
 import sc from 'styled-components';
-import { ITheme } from './css/theme';
-import { SupportButton } from './support';
+import { ITheme } from '../../css/theme';
+import { SupportButton } from './buttons/support';
 import { Header } from './header';
 
 const Wrapper = sc.div`

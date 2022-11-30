@@ -1,6 +1,6 @@
 import React from 'react';
 import sc from 'styled-components';
-import { ITheme } from './css/theme';
+import { ITheme } from '../../css/theme';
 
 const Wrapper = sc.div`
     position: relative;

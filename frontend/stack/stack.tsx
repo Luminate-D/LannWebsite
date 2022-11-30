@@ -1,9 +1,9 @@
 import React from 'react';
 import sc from 'styled-components';
-import { NodeJS, CLang, HtmlCss, TypeScript, Java } from './languages';
-import { Inversify, MUI, ReactFramework, SASS, StyledComponents, Webpack } from './webframeworks';
-import { MariaDB, SQLite, TypeORM } from './databases';
-import { ArchLinux, Cloudflare, Git, Nginx, Windows } from './infrastructure';
+import { NodeJS, CLang, HtmlCss, TypeScript, Java } from './sections/languages';
+import { Inversify, MUI, ReactFramework, SASS, StyledComponents, Webpack } from './sections/webframeworks';
+import { MariaDB, SQLite, TypeORM } from './sections/databases';
+import { ArchLinux, Cloudflare, Git, Nginx, Windows } from './sections/infrastructure';
 
 const Container = sc.div`
     display: flex;

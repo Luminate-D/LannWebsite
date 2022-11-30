@@ -3,10 +3,10 @@ import { createRoot } from 'react-dom/client';
 import sc, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { ITheme, Theme } from './css/theme';
 
-import { Welcome } from './welcome';
+import { Welcome } from './pages/main/welcome';
 import { TechnologyStack } from './stack/stack';
-import { ContactsList } from './contacts';
-import { Footer } from './footer';
+import { ContactsList } from './pages/main/contacts';
+import { Footer } from './pages/main/footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { MainPage } from './pages/main';
 import { PGPPage } from './pages/pgp';
