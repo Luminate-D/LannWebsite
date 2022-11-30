@@ -1,5 +1,6 @@
 import React from 'react';
 import sc from 'styled-components';
+import { Images } from '../../images';
 
 const Container = sc.div`
     display: flex;
@@ -56,19 +57,21 @@ export interface IService {
 
 export function Contact(props: IService) {
     return <ContactContainer onClick={() => window.open(props.url, '_blank')}>
-        <ContactLogo src={'/images/' + props.logo} />
+        <ContactLogo src={props.logo} />
         <ContactName>{props.name}</ContactName>
     </ContactContainer>
 }
+
+const images = Images.getRepository('services');
 
 export function ContactsList() {
     return <Container>
         <Title>Contacts</Title>
         <ContactsContainer>
-            <Contact logo={"discord.png"} name={"Discord"} url={'https://discord.com/users/814857877637562379'} />
-            <Contact logo={"telegram.webp"} name={"Telegram"} url={'https://t.me/@lannts'} />
-            <Contact logo={"github.png"} name={"GitHub"} url={'https://github.com/Luminate-D'} />
-            <Contact logo={"gmail.png"} name={"G-Mail"} url={'mailto://lann.wauthority@gmail.com'} />
+            <Contact logo={images["discord.png"]} name={"Discord"} url={'https://discord.com/users/814857877637562379'} />
+            <Contact logo={images["telegram.webp"]} name={"Telegram"} url={'https://t.me/@lannts'} />
+            <Contact logo={images["github.png"]} name={"GitHub"} url={'https://github.com/Luminate-D'} />
+            <Contact logo={images["gmail.png"]} name={"G-Mail"} url={'mailto://lann.wauthority@gmail.com'} />
         </ContactsContainer>
     </Container>;
 }

@@ -1,15 +1,12 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import sc, { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { ITheme, Theme } from './css/theme';
 
-import { Welcome } from './pages/main/welcome';
-import { TechnologyStack } from './stack/stack';
-import { ContactsList } from './pages/main/contacts';
-import { Footer } from './pages/main/footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { MainPage } from './pages/main';
 import { PGPPage } from './pages/pgp';
+import { ApiPage } from './pages/api';
 
 const root = createRoot(document.getElementById('root')!);
 const GlobalCss = createGlobalStyle`
@@ -41,6 +38,7 @@ function App() {
             <Routes>
                 <Route path={'/'} element={<MainPage />}/>
                 <Route path={'/pgp'} element={<PGPPage />}></Route>
+                <Route path={'/api'} element={<ApiPage />}></Route>
             </Routes>
         </ThemeProvider>
     </BrowserRouter>

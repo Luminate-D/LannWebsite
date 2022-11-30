@@ -5,16 +5,18 @@ import { Constants } from '../constants';
 import fstatic from '@fastify/static';
 import Bluebird from 'bluebird';
 import * as path from 'path';
-import { Kernel } from '../kernel';
 import { API } from '../api/api';
 
 @injectable()
 export class Web {
     private readonly logger = LoggerFactory.createLogger('WebService');
-    private _fastify: FastifyInstance;
+    private readonly _fastify: FastifyInstance;
 
     public constructor() {
         this._fastify = Fastify();
+        this._fastify.setNotFoundHandler((req, res) => {
+            res.redirect('/');
+        });
     }
 
     private initMiddleware() {
@@ -34,12 +36,6 @@ export class Web {
             });
 
             next();
-        });
-
-        this._fastify.get('/api', (req, res) => {
-            res.send({
-                message: `API is under development. You need an API key to access API. To get API key, please, contact me from 'Contacts' section on the main website.`
-            });
         });
     }
 

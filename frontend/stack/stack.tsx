@@ -4,6 +4,7 @@ import { NodeJS, CLang, HtmlCss, TypeScript, Java } from './sections/languages';
 import { Inversify, MUI, ReactFramework, SASS, StyledComponents, Webpack } from './sections/webframeworks';
 import { MariaDB, SQLite, TypeORM } from './sections/databases';
 import { ArchLinux, Cloudflare, Git, Nginx, Windows } from './sections/infrastructure';
+import { IDEsList } from './sections/ides';
 
 const Container = sc.div`
     display: flex;
@@ -25,7 +26,7 @@ const Title = sc.span`
     font-size: 3em;
     width: 100%;
     text-align: center;
-    margin: 2em 0;
+    margin: 1em 0;
 `;
 
 const Stack = sc.div`
@@ -67,17 +68,20 @@ export function TechnologyStack() {
             <SASS />
             <Inversify />
         </Section>
-        <Section title={'Databases'}>
-            <MariaDB />
-            <SQLite />
-            <TypeORM />
-        </Section>
         <Section title={'Infrastructure'}>
             <Windows />
             <ArchLinux />
             <Cloudflare />
             <Git />
             <Nginx />
+        </Section>
+        <Section title={'IDEs & Code Editors'}>
+            <IDEsList />
+        </Section>
+        <Section title={'Databases'}>
+            <MariaDB />
+            <SQLite />
+            <TypeORM />
         </Section>
     </Container>;
 }

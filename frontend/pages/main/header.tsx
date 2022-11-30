@@ -1,6 +1,7 @@
 import React from 'react';
 import sc from 'styled-components';
 import { ITheme } from '../../css/theme';
+import { useNavigate } from 'react-router-dom';
 
 const Wrapper = sc.div`
     position: relative;
@@ -62,10 +63,12 @@ const Button = sc.a`
 `;
 
 export function Header() {
+    const navigate = useNavigate();
+
     return <Wrapper>
         <StandWithUkraine>#StandWithUkraine</StandWithUkraine>
         <Buttons>
-            <Button href={'/api'}>API</Button>
+            <Button onClick={() => navigate('/api')}>API</Button>
         </Buttons>
     </Wrapper>;
 }
