@@ -1,7 +1,7 @@
 import React from 'react';
 import sc from 'styled-components';
 import { ITheme } from '../../css/theme';
-import { useNavigate } from 'react-router-dom';
+import { Button } from '../../utils/button';
 
 const Wrapper = sc.div`
     position: relative;
@@ -43,32 +43,11 @@ const Buttons = sc.div`
     align-items: center;
 `;
 
-const Button = sc.a`
-    display: flex;
-    font-weight: bold;
-    font-size: 1.2em;
-    padding: 0.3em 1em;
-    border-radius: 0.2em;
-    background-color: ${(props: ITheme) => props.theme.bgLight};
-    color: ${(props: ITheme) => props.theme.secondary};
-    transition: filter 0.2s;
-    
-    &:hover {
-        filter: brightness(1.1);
-    }
-    
-    &:active {
-        filter: brightness(1.3);
-    }
-`;
-
 export function Header() {
-    const navigate = useNavigate();
-
     return <Wrapper>
         <StandWithUkraine>#StandWithUkraine</StandWithUkraine>
         <Buttons>
-            <Button onClick={() => navigate('/api')}>API</Button>
+            <Button nav={'/api'}>API Docs</Button>
         </Buttons>
-    </Wrapper>;
+    </Wrapper>
 }

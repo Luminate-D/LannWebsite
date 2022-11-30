@@ -4,8 +4,9 @@ import { LoggerFactory } from '../logger/logger';
 import { Constants } from '../constants';
 import fstatic from '@fastify/static';
 import Bluebird from 'bluebird';
-import * as path from 'path';
 import { API } from '../api/api';
+import * as path from 'path';
+import * as fs from 'fs';
 
 @injectable()
 export class Web {
@@ -15,7 +16,9 @@ export class Web {
     public constructor() {
         this._fastify = Fastify();
         this._fastify.setNotFoundHandler((req, res) => {
-            res.redirect('/');
+            res.type('text/html').send(
+                fs.createReadStream(path.resolve(__dirname, '../../../static/index.html'))
+            );
         });
     }
 

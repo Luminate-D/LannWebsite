@@ -40,7 +40,6 @@ const BackgroundCover = sc.img`
 
 const Title = sc.span`
     position: relative;
-    font-family: 'Comfortaa';
     text-shadow: #ffffff 0 0 8px;
 
     animation: fadein 8s, glow 8s;
@@ -76,7 +75,6 @@ const Tag = sc.span`
 `;
 
 const TitleWord = sc.span`
-    font-family: 'Kanit';
     font-size: 7em;
     color: ${(props: ITheme) => props.theme.lightBlue};
 `;

@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { MainPage } from './pages/main';
 import { PGPPage } from './pages/pgp';
 import { ApiPage } from './pages/api';
+import { PageNotFound } from './pages/notfound';
 
 const root = createRoot(document.getElementById('root')!);
 const GlobalCss = createGlobalStyle`
@@ -39,6 +40,8 @@ function App() {
                 <Route path={'/'} element={<MainPage />}/>
                 <Route path={'/pgp'} element={<PGPPage />}></Route>
                 <Route path={'/api'} element={<ApiPage />}></Route>
+
+                <Route path="*" element={<PageNotFound />} />
             </Routes>
         </ThemeProvider>
     </BrowserRouter>

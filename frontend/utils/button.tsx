@@ -11,6 +11,7 @@ const _Button = sc.div`
     background-color: ${(props: ITheme) => props.theme.blurple};
     transition: box-shadow 0.2s;
     transition: filter 0.2s;
+    user-select: none;
 
     &:hover {
         cursor: pointer;
