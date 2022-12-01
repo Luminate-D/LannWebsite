@@ -1,7 +1,15 @@
 import React from 'react';
 import sc from 'styled-components';
 import { NodeJS, CLang, HtmlCss, TypeScript, Java } from './sections/languages';
-import { Inversify, MUI, ReactFramework, SASS, StyledComponents, Webpack } from './sections/webframeworks';
+import {
+    Inversify,
+    MUI,
+    ReactFramework,
+    ReduxFramework,
+    SASS,
+    StyledComponents,
+    Webpack
+} from './sections/webframeworks';
 import { MariaDB, SQLite, TypeORM } from './sections/databases';
 import { ArchLinux, Cloudflare, Git, Nginx, Windows } from './sections/infrastructure';
 import { IDEsList } from './sections/ides';
@@ -36,11 +44,11 @@ const Stack = sc.div`
     height: max-content;
     position: relative;
     flex-wrap: wrap;
-    padding: 0 10em;
+    padding: 0 10vw;
     box-sizing: border-box;
     gap: 1em;
     justify-content: center;
-    align-items: center;
+    align-items: baseline;
 `;
 
 interface ISection { title: string; children?: React.ReactNode };
@@ -63,6 +71,7 @@ export function TechnologyStack() {
         </Section>
         <Section title={'Frameworks & Libraries'}>
             <ReactFramework />
+            <ReduxFramework />
             <Webpack />
             <MUI />
             <StyledComponents />

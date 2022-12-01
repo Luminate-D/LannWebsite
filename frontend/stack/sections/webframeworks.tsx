@@ -11,6 +11,13 @@ export function ReactFramework() {
     `} />;
 }
 
+export function ReduxFramework() {
+    return <StackItem logo={images["redux.png"]} title={"Redux & Redux Toolkit"} description={`
+        I use it for state management in my React projects. I mostly use it
+        in big projects or somewhere when i really need it (like this website).
+    `} />;
+}
+
 export function Webpack() {
     return <StackItem logo={images["webpack.webp"]} title={"Webpack"} description={`
         This is my favorite code bundler so i use it in production projects

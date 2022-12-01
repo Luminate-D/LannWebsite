@@ -15,8 +15,9 @@ const Head = sc.div`
 
 const Logo = sc.img`
     width: 2.5em;
-    height: 2.5em;
+    height: auto;
     margin-right: 1em;
+    max-height: 2.5em;
 `;
 
 const Title = sc.span`
