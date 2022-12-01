@@ -1,11 +1,11 @@
-import { Welcome } from './main/welcome';
-import { TechnologyStack } from '../stack/stack';
-import { ContactsList } from './main/contacts';
-import { Footer } from './main/footer';
+import { Welcome } from './welcome';
+import { TechnologyStack } from '../../stack/stack';
+import { ContactsList } from './contacts';
+import { Footer } from './footer';
 import React from 'react';
 import sc from 'styled-components';
-import { ITheme } from '../css/theme';
-import { Header } from './main/header';
+import { ITheme } from '../../css/theme';
+import { Header } from './header';
 
 const ContentContainer = sc.div`
     display: flex;

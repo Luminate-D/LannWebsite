@@ -1,7 +1,7 @@
 import React from 'react';
 import sc from 'styled-components';
-import { Button } from '../utils/button';
-import { ITheme } from '../css/theme';
+import { Button } from '../../utils/button';
+import { ITheme } from '../../css/theme';
 
 const Wrapper = sc.div`
     display: flex;

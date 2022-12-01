@@ -4,11 +4,12 @@ import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { ITheme, Theme } from './css/theme';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { MainPage } from './pages/main';
-import { PGPPage } from './pages/pgp';
-import { ApiPage } from './pages/api';
-import { PageNotFound } from './pages/notfound';
+import { MainPage } from './pages/main/main';
+import { PGPPage } from './pages/pgp/pgp';
+import { ApiPage } from './pages/api/api';
+import { PageNotFound } from './pages/errors/notfound';
 import { Header } from './pages/main/header';
+import { RequestApiKeyPage } from './pages/api/request';
 
 const root = createRoot(document.getElementById('root')!);
 const GlobalCss = createGlobalStyle`
@@ -42,6 +43,7 @@ function App() {
                 <Route path={'/'} element={<MainPage />}/>
                 <Route path={'/pgp'} element={<PGPPage />}></Route>
                 <Route path={'/api'} element={<ApiPage />}></Route>
+                <Route path={'/api/request'} element={<RequestApiKeyPage />}></Route>
 
                 <Route path="*" element={<PageNotFound />} />
             </Routes>
