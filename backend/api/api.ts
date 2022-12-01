@@ -31,15 +31,53 @@ export class API {
                 Params: { code: string }
             }>, res) => {
                 const code = req.params['code'];
-                const result = await Discord.requestToken(code);
-                res.send(result);
+                try {
+                    const result = await Discord.requestToken(code);
+
+                    res.send({
+                        success: true,
+                        data: result
+                    });
+                } catch (e) {
+                    res.send({
+                        error: e,
+                        success: false
+                    });
+                }
             });
 
             instance.post('/user', async (req: FastifyRequest<{
                 Body: { access_token: string; refresh_token: string; }
             }>, res) => {
-                const user = await Discord.getUser(req.body.access_token);
-                res.send(user);
+                try {
+                    const user = await Discord.getUser(req.body.access_token);
+                    res.send({
+                        success: true,
+                        data: {
+                            user,
+                            tokensChanged: false
+                        }
+                    });
+                } catch (e) {
+                    try {
+                        const newTokens = await Discord.refreshToken(req.body.refresh_token);
+                        const user = await Discord.getUser(newTokens.access_token);
+
+                        res.send({
+                            success: true,
+                            data: {
+                                user: user,
+                                tokensChanged: true,
+                                tokens: newTokens
+                            }
+                        });
+                    } catch (e) {
+                        res.send({
+                            success: false,
+                            error: e
+                        });
+                    }
+                }
             });
 
             await register(instance);

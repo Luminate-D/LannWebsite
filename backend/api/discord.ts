@@ -14,6 +14,14 @@ export class Discord {
         });
     }
 
+    public static async refreshToken(refresh_token: string): Promise<DiscordOauth2.TokenRequestResult> {
+        return await oauth2.tokenRequest({
+            refreshToken: refresh_token,
+            grantType: 'refresh_token',
+            scope: 'identify'
+        });
+    }
+
     public static async getUser(token: string): Promise<DiscordOauth2.User> {
         return await oauth2.getUser(token);
     }

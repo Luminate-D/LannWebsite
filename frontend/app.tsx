@@ -11,8 +11,9 @@ import { ApiPage } from './pages/api/api';
 import { PageNotFound } from './pages/errors/notfound';
 import { Header } from './header/header';
 import { RequestApiKeyPage } from './pages/api/request';
-import { store } from './redux/store';
 import { OAuth2Page } from './pages/oauth2/oauth2';
+import { ErrorPage } from './pages/errors/error';
+import { store } from './redux/store';
 
 const root = createRoot(document.getElementById('root')!);
 const GlobalCss = createGlobalStyle`
@@ -50,6 +51,7 @@ function App() {
                     <Route path={'/api/request'} element={<RequestApiKeyPage />}></Route>
                     <Route path={'/oauth2'} element={<OAuth2Page />}></Route>
 
+                    <Route path={'/error/:errorId'} element={<ErrorPage />}></Route>
                     <Route path="*" element={<PageNotFound />} />
                 </Routes>
             </Provider>

@@ -6,6 +6,7 @@ import { RootState } from '../redux/store';
 import { LoginState, setState, setUser } from '../redux/discordAuth';
 import { API } from '../api';
 import { LoggedUserInfo } from './loggeduserinfo';
+import { Images } from '../images';
 
 const _LoginButtonWrapper = sc.div`
     margin-left: auto;
@@ -33,8 +34,19 @@ export function LoginButtonWrapper() {
 
         API.getUser(tokens)
             .then((user) => {
-                dispatch(setUser(user));
+                if(user.tokensChanged) {
+                    localStorage.setItem('accessToken', user.tokens!.access_token);
+                    localStorage.setItem('refreshToken', user.tokens!.refresh_token);
+                }
+
+                dispatch(setUser(user.user));
                 dispatch(setState(LoginState.Success));
+            })
+            .catch((error) => {
+                console.log('LoginButton.tsx [Error] ->', error);
+
+                localStorage.clear();
+                dispatch(setState(LoginState.Idle));
             });
     }, []);
 
@@ -46,9 +58,10 @@ export function LoginButtonWrapper() {
     return <_LoginButtonWrapper>{toRender}</_LoginButtonWrapper>
 }
 
+const images = Images.getRepository('services');
 export function LoginButton() {
     return <Button
-        logo={'images/services/discord.png'}
+        logo={images['discord.png']}
         href={'https://discord.com/api/oauth2/authorize?client_id=823521613587808306&redirect_uri=http%3A%2F%2Flocalhost%3A2022%2Foauth2&response_type=code&scope=identify'}>
         Login
     </Button>
