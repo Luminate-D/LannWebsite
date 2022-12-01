@@ -10,7 +10,7 @@ const Wrapper = sc.div`
     display: flex;
     flex-direction: column;
     
-    background-color: black;
+    background-color: ${(props: ITheme) => props.theme.bgBlack};
     align-items: center;
     position: relative;
     z-index: 0;
@@ -33,14 +33,15 @@ const Container = sc.div`
 const BackgroundCover = sc.img`
     position: absolute;
     height: 100%;
-    filter: blur(8px) brightness(0.5);
+    width: 100%;
+    filter: blur(8px) brightness(0.2);
     user-select: none;
     z-index: -1;
 `;
 
 const Title = sc.span`
     position: relative;
-    text-shadow: #ffffff 0 0 8px;
+    top: -1em;
 
     animation: fadein 8s, glow 8s;
     animation-iteration-count: 1, infinite;
@@ -52,8 +53,8 @@ const Title = sc.span`
     
     @keyframes glow {
         0% { text-shadow: #6d9bff 0 0 6px; }
-        35% { text-shadow: #6d9bff 0 0 16px; }
-        65% { text-shadow: #6d9bff 0 0 16px; }
+        35% { text-shadow: #6d9bff 0 0 10px; }
+        65% { text-shadow: #6d9bff 0 0 10px; }
         100% { text-shadow: #6d9bff 0 0 6px; }
     }
 `;
@@ -116,17 +117,21 @@ const Agitation = sc.span`
     margin-top: 2em;
 `;
 
+const Age = sc.span`
+    color: ${(props: ITheme) => props.theme.green};
+    font-weight: bold;
+    font-size: 1.2em;
+`;
+
 export function Welcome() {
     return <Wrapper>
-        <BackgroundCover src={"images/cover.png"} />
-        <Header />
-
+        <BackgroundCover src={"images/cover.jpg"} />
         <Container>
             <Title>
                 <TitleWord>Luminate-D</TitleWord>
                 <Tag>#NoToWar</Tag>
             </Title>
-            <SubTitle>Hello! I am {calculateAge()} years old and i love programming & developing software</SubTitle>
+            <SubTitle>Hello! I am <Age>{calculateAge()}</Age> years old and i love programming & developing software</SubTitle>
             <SubTitle>I want to work as software engineer abroad</SubTitle>
             <Agitation>Check out my technology stack below</Agitation>
 

@@ -8,6 +8,7 @@ import { MainPage } from './pages/main';
 import { PGPPage } from './pages/pgp';
 import { ApiPage } from './pages/api';
 import { PageNotFound } from './pages/notfound';
+import { Header } from './pages/main/header';
 
 const root = createRoot(document.getElementById('root')!);
 const GlobalCss = createGlobalStyle`
@@ -36,6 +37,7 @@ function App() {
     return <BrowserRouter>
         <ThemeProvider theme={Theme}>
             <GlobalCss />
+            <Header />
             <Routes>
                 <Route path={'/'} element={<MainPage />}/>
                 <Route path={'/pgp'} element={<PGPPage />}></Route>

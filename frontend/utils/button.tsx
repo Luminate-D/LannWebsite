@@ -9,8 +9,8 @@ const _Button = sc.div`
     border-radius: 5px;
     padding: 0.5em 1em;
     background-color: ${(props: ITheme) => props.theme.blurple};
-    transition: box-shadow 0.2s;
-    transition: filter 0.2s;
+    transition: box-shadow 0.1s;
+    transition: filter 0.1s;
     user-select: none;
 
     &:hover {

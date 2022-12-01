@@ -4,15 +4,16 @@ import { ITheme } from '../../css/theme';
 import { Button } from '../../utils/button';
 
 const Wrapper = sc.div`
-    position: relative;
+    position: absolute;
     z-index: 1;
     width: 100%;
-    height: 5em;
+    height: 4em;
     display: flex;
-    background-color: ${(props: ITheme) => props.theme.bgDark};
+    backdrop-filter: blur(16px);
+    background-color: ${(props: ITheme) => props.theme.bgDark}8f;
 `;
 
-const StandWithUkraine = sc.span`
+const StandWithUkraine = sc.a`
     position: absolute;
     font-size: 1.75em;
     line-height: 1.75em;
@@ -45,7 +46,7 @@ const Buttons = sc.div`
 
 export function Header() {
     return <Wrapper>
-        <StandWithUkraine>#StandWithUkraine</StandWithUkraine>
+        <StandWithUkraine href={'https://www.standwithukraine.how/'}>#StandWithUkraine</StandWithUkraine>
         <Buttons>
             <Button nav={'/api'}>API Docs</Button>
         </Buttons>

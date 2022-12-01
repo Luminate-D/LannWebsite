@@ -1,8 +1,9 @@
 export const Theme = {
     bgPrimary: '#222326',
     bgSecondary: '#2f3037',
-    bgLight: '#3b3c44',
+    bgLight: '#28282D',
     bgDark: '#18181b',
+    bgBlack: '#0f0f12',
 
     primary: '#ffffff',
     secondary: '#999999',

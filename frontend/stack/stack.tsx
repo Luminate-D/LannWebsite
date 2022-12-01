@@ -5,6 +5,7 @@ import { Inversify, MUI, ReactFramework, SASS, StyledComponents, Webpack } from 
 import { MariaDB, SQLite, TypeORM } from './sections/databases';
 import { ArchLinux, Cloudflare, Git, Nginx, Windows } from './sections/infrastructure';
 import { IDEsList } from './sections/ides';
+import { ITheme } from '../css/theme';
 
 const Container = sc.div`
     display: flex;
@@ -18,7 +19,7 @@ const Gradient = sc.div`
     position: absolute;
     width: 100%;
     height: 15em;
-    background: linear-gradient(black, rgba(0, 0, 0, 0));
+    background: linear-gradient(${(props: ITheme) => props.theme.bgBlack}, rgba(0, 0, 0, 0));
     z-index: -1;
 `;
 
