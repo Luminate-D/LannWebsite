@@ -5,7 +5,7 @@ import { Footer } from './footer';
 import React from 'react';
 import sc from 'styled-components';
 import { ITheme } from '../../css/theme';
-import { Header } from './header';
+import { Header } from '../../header/header';
 
 const ContentContainer = sc.div`
     display: flex;

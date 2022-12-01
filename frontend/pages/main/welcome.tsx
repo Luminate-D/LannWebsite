@@ -2,7 +2,7 @@ import React from 'react';
 import sc from 'styled-components';
 import { ITheme } from '../../css/theme';
 import { SupportButton } from './buttons/support';
-import { Header } from './header';
+import { Header } from '../../header/header';
 
 const Wrapper = sc.div`
     width: 100%;

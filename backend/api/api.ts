@@ -1,5 +1,6 @@
-import { FastifyInstance } from 'fastify';
+import { FastifyInstance, FastifyRequest } from 'fastify';
 import { register } from './v1/main';
+import { Discord } from './discord';
 
 const API_KEYS = [
     'd3ced9d7f86028e78a4d8d18bf77dfb595911c61', // Lann
@@ -17,7 +18,7 @@ export class API {
     }
 
     private register(fastify: FastifyInstance) {
-        fastify.register((instance, opts, next) => {
+        fastify.register(async (instance, opts, next) => {
             instance.addHook('preHandler', (req, res, next) => {
                 const key = req.headers['authorization'];
                 //if(!key) return res.status(401).send({ message: 'Missing Authorization header' });
@@ -26,7 +27,22 @@ export class API {
                 next();
             });
 
-            register(instance);
+            instance.get('/oauth2/:code', async (req: FastifyRequest<{
+                Params: { code: string }
+            }>, res) => {
+                const code = req.params['code'];
+                const result = await Discord.requestToken(code);
+                res.send(result);
+            });
+
+            instance.post('/user', async (req: FastifyRequest<{
+                Body: { access_token: string; refresh_token: string; }
+            }>, res) => {
+                const user = await Discord.getUser(req.body.access_token);
+                res.send(user);
+            });
+
+            await register(instance);
 
             next();
         }, { prefix: '/api' });

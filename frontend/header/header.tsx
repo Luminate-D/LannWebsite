@@ -1,7 +1,8 @@
 import React from 'react';
 import sc from 'styled-components';
-import { ITheme } from '../../css/theme';
-import { Button } from '../../utils/button';
+import { ITheme } from '../css/theme';
+import { Button } from '../utils/button';
+import { LoginButton, LoginButtonWrapper } from './loginbutton';
 
 const Wrapper = sc.div`
     position: absolute;
@@ -48,8 +49,9 @@ export function Header() {
     return <Wrapper>
         <StandWithUkraine href={'https://www.standwithukraine.how/'}>#StandWithUkraine</StandWithUkraine>
         <Buttons>
-            <Button nav={'/general'}>General</Button>
+            <Button nav={'/'}>General</Button>
             <Button nav={'/api'}>API Docs</Button>
         </Buttons>
+        <LoginButtonWrapper />
     </Wrapper>
 }

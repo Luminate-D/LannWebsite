@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@fastify/static": "^6.5.1",
+    "@reduxjs/toolkit": "^1.9.1",
     "@types/bluebird": "^3.5.37",
     "@types/luxon": "^3.1.0",
     "@types/react": "^18.0.25",
@@ -8,11 +9,13 @@
     "@types/styled-components": "^5.1.26",
     "bluebird": "^3.7.2",
     "colorette": "^2.0.19",
+    "discord-oauth2": "^2.10.1",
     "fastify": "^4.10.2",
     "inversify": "^6.0.1",
     "luxon": "^3.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.3",
     "reflect-metadata": "^0.1.13",
     "styled-components": "^5.3.6",

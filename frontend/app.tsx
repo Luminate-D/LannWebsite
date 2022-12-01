@@ -1,4 +1,5 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import { createRoot } from 'react-dom/client';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { ITheme, Theme } from './css/theme';
@@ -8,8 +9,10 @@ import { MainPage } from './pages/main/main';
 import { PGPPage } from './pages/pgp/pgp';
 import { ApiPage } from './pages/api/api';
 import { PageNotFound } from './pages/errors/notfound';
-import { Header } from './pages/main/header';
+import { Header } from './header/header';
 import { RequestApiKeyPage } from './pages/api/request';
+import { store } from './redux/store';
+import { OAuth2Page } from './pages/oauth2/oauth2';
 
 const root = createRoot(document.getElementById('root')!);
 const GlobalCss = createGlobalStyle`
@@ -37,16 +40,19 @@ const GlobalCss = createGlobalStyle`
 function App() {
     return <BrowserRouter>
         <ThemeProvider theme={Theme}>
-            <GlobalCss />
-            <Header />
-            <Routes>
-                <Route path={'/'} element={<MainPage />}/>
-                <Route path={'/pgp'} element={<PGPPage />}></Route>
-                <Route path={'/api'} element={<ApiPage />}></Route>
-                <Route path={'/api/request'} element={<RequestApiKeyPage />}></Route>
+            <Provider store={store}>
+                <GlobalCss />
+                <Header />
+                <Routes>
+                    <Route path={'/'} element={<MainPage />}/>
+                    <Route path={'/pgp'} element={<PGPPage />}></Route>
+                    <Route path={'/api'} element={<ApiPage />}></Route>
+                    <Route path={'/api/request'} element={<RequestApiKeyPage />}></Route>
+                    <Route path={'/oauth2'} element={<OAuth2Page />}></Route>
 
-                <Route path="*" element={<PageNotFound />} />
-            </Routes>
+                    <Route path="*" element={<PageNotFound />} />
+                </Routes>
+            </Provider>
         </ThemeProvider>
     </BrowserRouter>
 }
