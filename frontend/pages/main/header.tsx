@@ -38,7 +38,7 @@ const Buttons = sc.div`
     display: flex;
     width: max-content;
     justify-content: space-between;
-    gap: 1em;
+    gap: 0.5em;
     height: 100%;
     padding-left: 1em;
     align-items: center;
@@ -48,6 +48,7 @@ export function Header() {
     return <Wrapper>
         <StandWithUkraine href={'https://www.standwithukraine.how/'}>#StandWithUkraine</StandWithUkraine>
         <Buttons>
+            <Button nav={'/general'}>General</Button>
             <Button nav={'/api'}>API Docs</Button>
         </Buttons>
     </Wrapper>
