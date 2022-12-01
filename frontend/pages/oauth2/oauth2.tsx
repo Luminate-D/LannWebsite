@@ -19,8 +19,7 @@ export function OAuth2Page() {
         API.requestAccessToken(code)
             .then((result) => {
                 setResult(result);
-            })
-            .catch((error) => {
+            }).catch((error) => {
                 console.log('oauth2.tsx [Error] ->', error);
 
                 localStorage.clear();
@@ -34,6 +33,7 @@ export function OAuth2Page() {
         if(!result) return;
         localStorage.setItem('accessToken', result.access_token);
         localStorage.setItem('refreshToken', result.refresh_token);
+        dispatch(setState(LoginState.Update));
         nav('/');
     });
 

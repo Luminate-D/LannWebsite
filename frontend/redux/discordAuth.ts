@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { User } from 'discord-oauth2';
 
 export enum LoginState {
-    Idle, Success, Processing
+    Idle, Success, Processing, Update
 }
 
 export interface DiscordAuthState {
@@ -12,7 +12,7 @@ export interface DiscordAuthState {
 
 export const discordAuthSlice = createSlice({
     name: 'discordAuth',
-    initialState: { state: LoginState.Processing } as DiscordAuthState,
+    initialState: { state: LoginState.Update } as DiscordAuthState,
     reducers: {
         setUser: (state, action) => {
             state.user = action.payload;

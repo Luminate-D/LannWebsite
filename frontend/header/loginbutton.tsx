@@ -22,6 +22,8 @@ export function LoginButtonWrapper() {
     const dispatch = useDispatch();
 
     useEffect(() => {
+        if(state != LoginState.Update) return;
+
         if(localStorage.getItem('accessToken') == null) {
             dispatch(setState(LoginState.Idle));
             return;
@@ -41,18 +43,18 @@ export function LoginButtonWrapper() {
 
                 dispatch(setUser(user.user));
                 dispatch(setState(LoginState.Success));
-            })
-            .catch((error) => {
+            }).catch((error) => {
                 console.log('LoginButton.tsx [Error] ->', error);
 
                 localStorage.clear();
                 dispatch(setState(LoginState.Idle));
             });
-    }, []);
+    });
 
     const toRender =
         state == LoginState.Idle ? <LoginButton /> :
         state == LoginState.Processing ? 'Logging In...' :
+        state == LoginState.Update ? 'Updating...' :
             <LoggedUserInfo />;
 
     return <_LoginButtonWrapper>{toRender}</_LoginButtonWrapper>
